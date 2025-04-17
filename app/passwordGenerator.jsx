@@ -1,35 +1,44 @@
-import { View, Text, StyleSheet } from "react-native";
-import IonIcons from "react-native-vector-icons/Ionicons";
+import React, { useState } from "react";
+import { View, Text, Button, StyleSheet } from "react-native";
 
-export default function HomeScreen() {
+export default function PasswordGenerator() {
+    const [password, setPassword] = useState("");
+
+    const generatePassword = () => {
+        const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        let newPassword = "";
+        for (let i = 0; i < 8; i++) {
+            newPassword += chars[Math.floor(Math.random() * chars.length)];
+        }
+        setPassword(newPassword);
+    };
 
     return (
         <View style={styles.container}>
-
-            <View style={styles.content}>
-                <IonIcons name="key-outline" size={74} color="purple" />
-                <Text style={styles.title}>Seja bem-vindo </Text>
-            </View>
+            <Text style={styles.title}>Gerador de Senhas</Text>
+            <Button title="Gerar Senha" onPress={generatePassword} />
+            {password && <Text style={styles.password}>{password}</Text>}
         </View>
     );
 }
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        alignItems: "center",
-    },
-    content: {
-        alignItems: "center",
         justifyContent: "center",
-        padding: 20,
-        backgroundColor: "#ffff",
-        width: "98%",
-        height: "96%",
-        margin: 20,
+        alignItems: "center",
+        backgroundColor: "#f4f4f4",
     },
     title: {
-        color: "purple",
+        fontSize: 24,
         fontWeight: "bold",
-        fontSize: 36,
+        color: "purple",
+        marginBottom: 20,
+    },
+    password: {
+        marginTop: 20,
+        fontSize: 18,
+        fontWeight: "bold",
+        color: "purple",
     },
 });
