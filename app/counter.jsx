@@ -21,7 +21,7 @@ export default function HomeScreen() {
                 </Pressable>
 
                 <Pressable style={[styles.button, styles.resetButton]} onPress={() => setCounter(0)}>
-                    <Text style={styles.buttonText}>Reset</Text>
+                    <Text style={styles.buttonText}>Zerar</Text>
                 </Pressable>
 
             </View>
