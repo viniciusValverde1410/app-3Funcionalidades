@@ -40,5 +40,11 @@ const styles = StyleSheet.create({
         fontSize: 18,
         fontWeight: "bold",
         color: "purple",
+        backgroundColor: "#fff",
+        width: "40%",
+        height: "3%",
+        justifyContent: "center",
+        textAlign: "center",
+        borderRadius: 5,
     },
 });
